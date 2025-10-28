@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RCCMCS_PROG6212.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en" style="background-color: white; top:0; margin:0px; ">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+     
+
+</head>
+    <style>
+          .header-strip{
+              position: fixed;
+              top:0;
+              height: 70px;
+              width: 100%;
+              padding:10px;
+              background-color:  #32353A;
+              justify-content: space-between;
+              display:flex; 
+              gap:200px; 
+              flex-wrap:nowrap;
+              margin-bottom:5px;
+              font-family:Arial, Helvetica, sans-serif;
+              align-items: center;
+          }
+
+          .header-strip p{
+              color: white;
+              font-size: 18px;
+              font-weight: 300;
+          }
+
+         
+          .ac-links{
+              display: flex;
+              gap:25px;
+              flex-wrap:nowrap;
+              color: white;       
+          }
+          
+
+          .ac-links a{
+               color: white;
+               text-decoration: none;
+          }
+
+    </style>
+
+<body style= "background-color: white;" >
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+            <div class="header-strip">
+                <img src="Images/logo.png" alt="Icon" style="width:120px; height:50px;" />
+                <div>
+                     <p style="font-weight:200;">ROSEBANK COLLEGE CLAIM SYSTEM</p>
+                </div>
+                <div class="ac-links">
+                    <p><a href="About.aspx">About</a></p>
+                    <p><a href="Contact.aspx">Contact</a></p>
+                </div>
+                  
+            </div>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>

@@ -294,7 +294,7 @@
                 <a href="HRpage.aspx" style="font-weight:bold; ">Dashboard</a>
                 <a href="ClaimsManagement.aspx" style="border-bottom: none;">Claims Processing</a>
                 <a href="LecturerManagement.aspx" style="border-bottom: none;">Lecturer Management</a>
-                <a href="Reports.aspx">Reports & Analytics</a>
+                <a href="Report.aspx">Reports & Analytics</a>
             </div>
             <br />
             <br />

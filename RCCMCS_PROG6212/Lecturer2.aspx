@@ -317,7 +317,7 @@
                     </tr>
                 </thead>
                 <tbody id="claimsTableBody">
-                    <!-- Existing sample data -->
+                  
                     <tr>
                         <td>DIS2</td>
                         <td>PROG6121</td>
@@ -334,11 +334,11 @@
     </form>
 
    <script>
-       // Array to store claims data
+       
        let claims = JSON.parse(localStorage.getItem('claims')) || [];
 
        function submitClaim() {
-           // Get form values
+          
            const moduleCode = document.getElementById('moduleCode').value;
            const programCode = document.getElementById('programCode').value;
            const claimDate = document.getElementById('claimDate').value;
@@ -347,19 +347,18 @@
            const rate = parseFloat(document.getElementById('rate').value);
            const additionalNotes = document.getElementById('additionalNotes').value;
 
-           // Validate required fields
+         
            if (!moduleCode || !programCode || !claimDate || !phaseTask || !totalHours || !rate) {
                alert('Please fill in all required fields');
                return;
            }
 
-           // Calculate total amount
+          
            const totalAmount = totalHours * rate;
 
-           // Format date for display
            const formattedDate = new Date(claimDate).toLocaleDateString('en-GB');
 
-           // Create new claim object
+         
            const newClaim = {
                id: Date.now(),
                moduleCode,
@@ -372,33 +371,32 @@
                phaseTask,
                notes: additionalNotes,
                submittedDate: new Date().toISOString(),
-               fileData: uploadedFileData // <— base64 file here
+               fileData: uploadedFileData 
            };
 
 
-           // Add to claims array
+       
            claims.push(newClaim);
 
-           // Save to localStorage
+       
            localStorage.setItem('claims', JSON.stringify(claims));
 
-           // Add to table
+           
            addClaimToTable(newClaim);
 
-           // Clear form
+          
            clearForm();
 
-           // Show success message
+           
            alert('Claim submitted successfully!');
        }
 
        function addClaimToTable(claim) {
            const tableBody = document.getElementById('claimsTableBody');
 
-           // Create new row
+        
            const newRow = document.createElement('tr');
 
-           // Determine status class
            let statusClass = 'status-pending';
            if (claim.status === 'Approved') statusClass = 'status-approved';
            if (claim.status === 'Rejected') statusClass = 'status-rejected';
@@ -413,17 +411,12 @@
             <td class="${statusClass}">${claim.status}</td>
         `;
 
-           // Add new row at the top of the table
            tableBody.insertBefore(newRow, tableBody.firstChild);
        }
 
        function loadClaims() {
            const tableBody = document.getElementById('claimsTableBody');
 
-           // Clear existing rows (except the sample ones if you want to keep them)
-           // tableBody.innerHTML = ''; // Uncomment this to remove sample data
-
-           // Add claims from localStorage
            claims.forEach(claim => {
                addClaimToTable(claim);
            });
@@ -440,14 +433,14 @@
            document.getElementById('fileUpload').value = '';
        }
 
-       // Initialize when page loads
+     
        document.addEventListener('DOMContentLoaded', function () {
            const today = new Date().toISOString().split('T')[0];
            document.getElementById('claimDate').value = today;
            loadClaims();
        });
 
-       let uploadedFileData = null; // will store base64 file data
+       let uploadedFileData = null; 
 
        function previewFile() {
            const fileInput = document.getElementById('fileUpload');
@@ -459,11 +452,11 @@
                const icon = document.getElementById('previewIcon');
 
                if (file.type.startsWith("image/")) {
-                   icon.src = e.target.result; // show image directly
+                   icon.src = e.target.result; 
                } else if (file.type === "application/pdf") {
-                   icon.src = "Images/pdf-icon.png"; // use pdf icon
+                   icon.src = "Images/pdf-icon.png"; 
                } else {
-                   icon.src = "Images/attach.png"; // fallback
+                   icon.src = "Images/attach.png"; 
                }
            };
 

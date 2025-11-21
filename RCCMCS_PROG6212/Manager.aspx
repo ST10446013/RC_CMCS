@@ -186,7 +186,7 @@
             <p style="font-size:16px; color: grey; margin-top:70px;">RECENT CLAIMS</p>
             
             <div id="claimsContainer">
-                <!-- Claims will be dynamically loaded here -->
+                
                 <div class="no-claims">No claims submitted yet</div>
             </div>
         </div>
@@ -202,7 +202,7 @@
                 return;
             }
 
-            // Sort claims by date (newest first)
+            
             const sortedClaims = claims.sort((a, b) => new Date(b.submittedDate) - new Date(a.submittedDate));
             
             let claimsHTML = '';
@@ -263,14 +263,14 @@
                 claims[claimIndex].status = newStatus;
                 localStorage.setItem('claims', JSON.stringify(claims));
                 
-                // Reload the claims to show updated status
+              
                 loadManagerClaims();
                 
                 alert(`Claim #${claimId} has been ${newStatus.toLowerCase()}`);
             }
         }
 
-        // Load claims when page loads
+      
         document.addEventListener('DOMContentLoaded', loadManagerClaims);
     </script>
 </body>

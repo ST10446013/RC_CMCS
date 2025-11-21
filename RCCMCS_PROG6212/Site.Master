@@ -54,6 +54,12 @@
                text-decoration: none;
           }
 
+          footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+
     </style>
 
 <body style= "background-color: white;" >
@@ -80,7 +86,7 @@
             <div class="header-strip">
                 <img src="Images/logo.png" alt="Icon" style="width:120px; height:50px;" />
                 <div>
-                     <p style="font-weight:200;">ROSEBANK COLLEGE CLAIM SYSTEM</p>
+                     <p style="font-weight:200;"><a href="LandingPage.aspx" style="text-decoration:none; color:white; font-weight:bold; font-size:22px; font-family:Arial, Helvetica, sans-serif;">ROSEBANK COLLEGE CLAIM SYSTEM</a> </p>
                 </div>
                 <div class="ac-links">
                     <p><a href="About.aspx">About</a></p>
@@ -98,5 +104,8 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+    <footer style="background-color:#32353A; color:white; text-align:center; padding:20px 0; font-family:Arial, Helvetica, sans-serif;">
+    <p>© 2025 Rosebank College Claim System | Developed by Owami Kimberly Ndlovu</p>
+</footer>
 </body>
 </html>

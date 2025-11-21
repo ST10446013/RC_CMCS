@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>Lecturer Page</title>
+    <title>Tutor Page</title>
     <style>
         body {
             margin: 0; 
@@ -157,7 +157,7 @@
             background-color: #f5f5f5;
         }
 
-        /* Status styles */
+      
         .status-pending {
             color: #ff9800;
             font-weight: bold;
@@ -185,14 +185,14 @@
     <form id="form2" runat="server">
        <div class="side-Navigation-bar">
              <a href="LandingPage.aspx" style="padding: 10px; transition:none;"><img src="Images/logo.png" alt="Icon" style="width:120px; height:50px;" /></a>
-             <a href="Home.aspx" style="border:none; font-weight:bold;">Miss Khanyi Mkhonza</a>
-             <a href="Lecturer.aspx" >Lecturer</a>
+             <a href="Home.aspx" style="border:none; font-weight:bold;">Owami Ndlovu</a>
+             <a href="Lecturer.aspx" >Tutor</a>
              <div class="dashboard-items">
                  <br />
                  <a href="Lecturer.aspx" style="font-weight:bold; ">Dashboard</a>
                  <a href="Lecturer.aspx" style="border-bottom: none;">My Claims</a>
                  <a href="Lecturer2.aspx" style="border-bottom: none;">Submit Claims</a>
-                 <a href="Contact.aspx" >Lecturer Details</a>
+                 <a href="Contact.aspx" >Tutor Details</a>
              </div>
              <br />
              <br />
@@ -246,7 +246,7 @@
                         </tr>
                     </thead>
                     <tbody id="recentClaimsBody">
-                     
+                      
                     </tbody>
                 </table>
             </section>
@@ -254,13 +254,11 @@
 
         <script>
             function loadClaimsData() {
-               
+             
                 const claims = JSON.parse(localStorage.getItem('claims')) || [];
 
-               
-                updateSummary(claims);
-
-               
+                
+                updateSummary(claims);                
                 loadRecentClaims(claims);
             }
 
@@ -270,7 +268,7 @@
                 const rejectedClaims = claims.filter(claim => claim.status === 'Rejected').length;
                 const totalHours = claims.reduce((sum, claim) => sum + parseFloat(claim.totalHours), 0);
 
-               
+                
                 document.getElementById('approvedClaims').textContent = approvedClaims;
                 document.getElementById('rejectedClaims').textContent = rejectedClaims;
                 document.getElementById('totalHours').textContent = totalHours;
@@ -313,6 +311,7 @@
                 });
             }
 
+           
             document.addEventListener('DOMContentLoaded', loadClaimsData);
         </script>
     </form>

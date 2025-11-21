@@ -309,7 +309,7 @@
                 document.addEventListener('DOMContentLoaded', function() {
                     const claims = JSON.parse(localStorage.getItem('claims')) || [];
                     const container = document.querySelector('.main-content');
-                    container.innerHTML = ''; // clear the static claims
+                    container.innerHTML = '';
 
                     claims.forEach(claim => {
                         const section = document.createElement('section');
